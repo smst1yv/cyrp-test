@@ -1,0 +1,792 @@
+.cardWrapper {
+	--xMove: 265.75px;
+	--yMove: 4.625px;
+	--xMoveNeg: -265.75px;
+	--yMoveNeg: -4.625px;
+	--angle: -30.10388872852418deg;
+	--angleNeg: 30.10388872852418deg;
+	--boxBorder: 1px;
+	--xRotationAngle: 0;
+	--yRotationAngle: 0;
+	
+	position: relative;
+	width: 100vw;
+	height: 14rem;
+	margin: 20px auto;
+	overflow: hidden;
+	transition: all 350ms ease-out;
+}
+
+.cardBack {
+	content: "";
+	position: absolute;
+	width: 22rem;
+	height: 13rem;
+	max-width: 280px;
+	max-height: 191px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 0.75em;
+	
+	
+	background:
+	linear-gradient(
+		90deg,
+		rgb(196 207 210 / 100%),
+		rgb(196 207 210 / 100%)
+	) padding-box, /* inside box */
+	linear-gradient(
+		var(--angle),
+		rgb(193 193 193 / 100%) 1%,
+		rgb(211 211 211 / 100%) 3%,
+		rgb(211 211 211 / 100%) 15%,
+		rgb(96 96 96 / 100%) 32%,
+		rgb(76 76 76 / 100%) 35%,
+		rgb(248 248 248 / 100%) 55%,
+		rgb(80 80 80 / 100%) 70%,
+		rgb(193 193 193 / 100%) 83%,
+		rgb(196 196 196 / 100%),
+		rgb(255 255 255 / 100%)
+	) border-box; /* outside box */
+	
+	background:
+	linear-gradient(
+		var(--angleNeg),
+		rgb(193 193 193 / 100%) 1%,
+		rgb(211 211 211 / 100%) 3%,
+		rgb(211 211 211 / 100%) 15%,
+		rgb(96 96 96 / 100%) 32%,
+		rgb(76 76 76 / 100%) 35%,
+		rgb(248 248 248 / 100%) 55%,
+		rgb(80 80 80 / 100%) 70%,
+		rgb(193 193 193 / 100%) 83%,
+		rgb(196 196 196 / 100%),
+		rgb(255 255 255 / 100%)
+	) border-box; /* outside box */
+	
+	background-blend-mode: normal, normal;
+	background-size: 100% 100%, 100% 100%;
+	
+	box-shadow: 0 0 3px rgb(0 0 0 / 10%),
+		0 2px 8px rgb(0 0 0 / 22%),
+		0 4px 12px rgb(0 0 0 / 30%);
+}
+
+.cardBack:before {
+	content: "";
+	position: absolute;
+	width: 99%;
+	height: 99%;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	
+	border-radius: 0.76em;
+	
+	background:
+	radial-gradient(
+		circle at var(--xMove) var(--yMove),
+		rgb(255 255 255 / 60%) 40%,
+		transparent
+	) padding-box, /* inside box */
+	linear-gradient(
+		180deg,
+		rgb(102 102 102 / 100%),
+		rgb(26 26 26 / 100%)
+	) padding-box,
+	linear-gradient(
+		var(--angle),
+		rgb(193 193 193 / 100%) 1%,
+		rgb(211 211 211 / 100%) 3%,
+		rgb(211 211 211 / 100%) 15%,
+		rgb(96 96 96 / 100%) 32%,
+		rgb(76 76 76 / 100%) 35%,
+		rgb(248 248 248 / 100%) 55%,
+		rgb(80 80 80 / 100%) 70%,
+		rgb(193 193 193 / 100%) 83%,
+		rgb(196 196 196 / 100%),
+		rgb(255 255 255 / 100%)
+	) border-box; /* outside box */
+	
+	border: var(--boxBorder) solid transparent;
+	background-blend-mode: screen, normal, normal;
+	background-repeat: no-repeat;
+	background-size: 100% 100%, 100% 100%, 100% 100%;
+	
+	opacity: .8;
+	display: none;
+}
+
+.moveRadialWrapper {
+	position: absolute;
+	width: 22rem;
+	height: 13rem;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
+	border-radius: 0.75em;
+	margin-top: -.8px;
+	margin-left: 1px;
+	
+	background:
+	linear-gradient(
+		180deg,
+		rgb(128 128 128 / 100%),
+		rgb(100 100 100 / 100%)
+	);
+	
+	overflow: hidden;
+}
+
+.moveRadialWrapper:before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	
+	background:
+	linear-gradient(
+		rgb(61 60 91 / 100%),
+		rgb(61 60 91 / 100%)
+	),
+	radial-gradient(
+		circle at 50% 50%,
+		rgb(255 255 255 / 100%),
+		rgb(0 0 0 / 100%)
+	);
+	mix-blend-mode: multiply;
+	mix-blend-mode: color-burn;
+}
+
+.moveRadialWrapper:after {
+	content: '';
+	position: absolute;
+	left: -150px;
+	top: 1px;
+	width: 130%;
+	height: 100%;
+	border-radius: 0.76em;
+	background: 
+	radial-gradient( 
+		circle at 0% 70%, 
+		rgba(255 255 255 / 51%) 30%, 
+		rgba(255 255 255 / 26%) 50%, 
+		rgba(0 0 0 / 0) 80% 
+	);
+	-webkit-filter: blur(.2px);
+	filter: blur(.2px);
+	mix-blend-mode: plus-lighter;
+	opacity: .56;
+	transform: rotate(-251deg);
+}
+
+.moveRadial {
+	content: "";
+	position: absolute;
+	width: 112%;
+	height: 112%;
+	/*
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	*/
+	top: -6px;
+	left: -5px;
+	transition: all 250ms;
+	margin-top: 2px;
+	border-radius: inherit;
+	
+	background:
+	radial-gradient(
+		53% 68% at var(--xMove) var(--yMove),
+		hsl(227, 7%, 24%) 15%, /* dark gray */
+		hsl(359, 55%, 61%), /* red */
+		hsl(41, 44%, 49%), /* gold */
+		hsl(97, 30%, 55%), /* green */
+		hsl(162, 33%, 54%), /* aqua */
+		hsl(200, 53%, 57%), /* blue */
+		hsl(239, 59%, 68%), /* purple */
+		hsl(227, 7%, 24%) /* dark gray */
+	);
+	
+	background:
+	radial-gradient(
+		32% 51% at var(--xMove) var(--yMove),
+		rgb(57 59 65 / 100%) 26%, /* dark gray */
+		rgb(110 72 245 / 100%), /* purple */
+		rgb(69 118 210 / 100%), /* blue dark */
+		rgba(53 168 225 / 100%), /* blue light */
+		rgba(52 216 179 / 100%), /* aqua */
+		rgb(129 213  60 / 100%), /* green */
+		rgb(222 201 33 / 100%), /* yellow */
+		rgb(250 146 54 / 100%), /* orange */
+		rgb(233 92 78 / 100%), /* red */
+		rgb(205 55 139 / 100%), /* pink */
+		rgb(84 87 97 / 100%) /* dark gray */
+	),
+	conic-gradient(
+		from var(--angle) at var(--xMove) var(--yMove),
+		rgb(121 122 125 / 100%), /* mid gray */
+		rgb(121 122 125 / 100%), /* mid gray */
+		rgb(121 122 125 / 100%), /* mid gray */
+		rgb(110 72 245 / 90%), /* purple */
+		rgb(69 118 210 / 90%), /* blue dark */
+		rgba(53 168 225 / 90%), /* blue light */
+		rgba(52 216 179 / 90%), /* aqua */
+		rgb(129 213 60 / 90%), /* green */
+		rgb(222 201 33 / 90%), /* yellow */
+		rgb(250 146 54 / 90%), /* orange */
+		rgb(233 92 78 / 90%), /* red */
+		rgb(205 55 139 / 90%), /* pink */
+		rgb(57 59 65 / 75%), /* dark gray */
+		rgb(57 59 65 / 75%), /* dark gray */
+		rgb(57 59 65 / 75%), /* dark gray */
+		rgb(110 72 245 / 90%), /* purple */
+		rgb(69 118 210 / 90%), /* blue dark */
+		rgba(53 168 225 / 90%), /* blue light */
+		rgba(52 216 179 / 90%), /* aqua */
+		rgb(129 213 60 / 90%), /* green */
+		rgb(222 201 33 / 90%), /* yellow */
+		rgb(250 146 54 / 90%), /* orange */
+		rgb(233 92 78 / 90%), /* red */
+		rgb(205 55 139 / 90%), /* pink */
+		rgb(121 122 125 / 100%) /* mid gray */
+	),
+	conic-gradient(
+		from var(--angleNeg) at var(--xMoveNeg) var(--yMoveNeg),
+		rgb(57 59 65 / 75%), /* dark gray */
+		rgb(57 59 65 / 75%), /* dark gray */
+		rgb(57 59 65 / 75%), /* dark gray */
+		rgb(110 72 245 / 90%), /* purple */
+		rgb(69 118 210 / 90%), /* blue dark */
+		rgba(53 168 225 / 90%), /* blue light */
+		rgba(52 216 179 / 90%), /* aqua */
+		rgb(129 213 60 / 90%), /* green */
+		rgb(222 201 33 / 90%), /* yellow */
+		rgb(250 146 54 / 90%), /* orange */
+		rgb(233 92 78 / 90%), /* red */
+		rgb(205 55 139 / 90%), /* pink */
+		rgb(57 59 65 / 75%), /* dark gray */
+		rgb(57 59 65 / 75%), /* dark gray */
+		rgb(57 59 65 / 75%), /* dark gray */
+		rgb(110 72 245 / 90%), /* purple */
+		rgb(69 118 210 / 90%), /* blue dark */
+		rgba(53 168 225 / 90%), /* blue light */
+		rgba(52 216 179 / 90%), /* aqua */
+		rgb(129 213 60 / 90%), /* green */
+		rgb(222 201 33 / 90%), /* yellow */
+		rgb(250 146 54 / 90%), /* orange */
+		rgb(233 92 78 / 90%), /* red */
+		rgb(205 55 139 / 90%), /* pink */
+		rgb(121 122 125 / 100%) /* mid gray */
+	),
+	radial-gradient(
+		circle at var(--xMove) var(--yMove),
+		rgb(255 255 255 / 60%) 40%,
+		transparent
+	),
+	linear-gradient(
+		180deg,
+		rgb(216 216 216 / 100%),
+		rgb(128 128 128 / 100%)
+	);
+	
+	background-blend-mode: hard-light, difference, hard-light, overlay, normal;
+	background-blend-mode: hard-light, difference, hard-light, saturation, normal;
+	background-size: 150% 150%, 100% 100%, 120% 120%, 100% 100%;
+	background-repeat: no-repeat;
+	
+	-webkit-filter: blur(35px) saturate(165%) brightness(1.2);
+	filter: blur(35px) saturate(185%) brightness(1.05);
+	
+	opacity: .62;
+}
+
+.moveRadial:before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-55%, -55%);
+	transform: translate(-55%, -55%);
+	
+	background: 
+	radial-gradient(
+		circle at var(--xMove) var(--yMove),
+		rgb(255 255 255 / 60%) 15%,
+		rgb(255 255 255 / 15%) 35%,
+		transparent
+	),
+	linear-gradient(
+		90deg,
+		rgb(200 200 200 / 100%),
+		rgb(120 120 120 / 100%)
+	);
+	
+	background-blend-mode: hard-light, normal;
+	
+	mix-blend-mode: plus-lighter;
+	mix-blend-mode: lighten;
+	mix-blend-mode: color-dodge;
+	mix-blend-mode: overlay;
+	background-blend-mode: multiply;
+	opacity: 0.31;
+}
+
+.moveRadialPatternWrap {
+	width: 100%;
+	height: 100%;
+	filter:
+		drop-shadow(0px 0px .3px rgb(0 0 0 / 75%)) 
+		drop-shadow(-.2px -.2px .1px rgba(255 255 255 / 55%))
+		drop-shadow(-.2px -.2px .4px rgba(255 255 255 / 20%))
+		drop-shadow(.2px .2px .1px rgb(0 0 0 / 50%))
+		
+		drop-shadow(.1px 0px 0px rgb(0 0 0 / 8%))
+		drop-shadow(-.1px 0px 0px rgb(0 0 0 / 12%))
+		drop-shadow(0px .1px 0px rgb(0 0 0 / 8%))
+		drop-shadow(0px -.1px 0px rgb(0 0 0 / 12%))
+		drop-shadow(.1px .1px 0px rgb(0 0 0 / 8%))
+		drop-shadow(-.1px -.1px 0px rgb(0 0 0 / 12%))
+		drop-shadow(-.1px 1px 0px rgb(0 0 0 / 8%))
+		drop-shadow(.1px -.1px 0px rgb(0 0 0 / 12%));
+	filter:
+		drop-shadow(.2px .2px .1px rgb(0 0 0 / 75%))
+		drop-shadow(.2px .2px .3px rgb(0 0 0 / 50%)) 
+		drop-shadow(-.2px -.2px .1px rgba(255 255 255 / 45%))
+		drop-shadow(-.2px -.2px .3px rgba(255 255 255 / 26%))
+		saturate(1.5);
+	mix-blend-mode: revert;
+	mix-blend-mode: hard-light;
+	mix-blend-mode: color-dodge;
+	opacity: .62;
+}
+
+.moveRadialPattern {
+	content: "";
+	position: absolute;
+	width: 130%;
+	height: 130%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) rotateX(var(--xRotationAngle)) rotateY(var(--yRotationAngle));
+	transform: translate(-50%, -50%);
+	transition: all 350ms;
+	border-radius: inherit;
+
+	background:
+	radial-gradient(
+		22% 31% at var(--xMoveNeg) var(--yMoveNeg),
+		rgb(57 59 65 / 100%) 26%, /* dark gray */
+		rgb(110 72 245 / 100%), /* purple */
+		rgb(69 118 210 / 100%), /* blue dark */
+		rgba(53 168 225 / 100%), /* blue light */
+		rgba(52 216 179 / 100%), /* aqua */
+		rgb(129 213  60 / 100%), /* green */
+		rgb(222 201 33 / 100%), /* yellow */
+		rgb(250 146 54 / 100%), /* orange */
+		rgb(233 92 78 / 100%), /* red */
+		rgb(205 55 139 / 100%), /* pink */
+		rgb(84 87 97 / 100%) /* dark gray */
+	),
+	conic-gradient(
+		from var(--angle) at var(--xMove) var(--yMove),
+		rgb(121 122 125 / 100%), /* mid gray */
+		rgb(121 122 125 / 100%), /* mid gray */
+		rgb(121 122 125 / 100%), /* mid gray */
+		rgb(110 72 245 / 90%), /* purple */
+		rgb(69 118 210 / 90%), /* blue dark */
+		rgba(53 168 225 / 90%), /* blue light */
+		rgba(52 216 179 / 90%), /* aqua */
+		rgb(129 213 60 / 90%), /* green */
+		rgb(222 201 33 / 90%), /* yellow */
+		rgb(250 146 54 / 90%), /* orange */
+		rgb(233 92 78 / 90%), /* red */
+		rgb(205 55 139 / 90%), /* pink */
+		rgb(57 59 65 / 75%), /* dark gray */
+		rgb(57 59 65 / 75%), /* dark gray */
+		rgb(57 59 65 / 75%), /* dark gray */
+		rgb(110 72 245 / 90%), /* purple */
+		rgb(69 118 210 / 90%), /* blue dark */
+		rgba(53 168 225 / 90%), /* blue light */
+		rgba(52 216 179 / 90%), /* aqua */
+		rgb(129 213 60 / 90%), /* green */
+		rgb(222 201 33 / 90%), /* yellow */
+		rgb(250 146 54 / 90%), /* orange */
+		rgb(233 92 78 / 90%), /* red */
+		rgb(205 55 139 / 90%), /* pink */
+		rgb(121 122 125 / 100%) /* mid gray */
+	),
+	conic-gradient(
+		from var(--angleNeg) at var(--xMoveNeg) var(--yMoveNeg),
+		rgb(57 59 65 / 75%), /* dark gray */
+		rgb(57 59 65 / 75%), /* dark gray */
+		rgb(57 59 65 / 75%), /* dark gray */
+		rgb(110 72 245 / 90%), /* purple */
+		rgb(69 118 210 / 90%), /* blue dark */
+		rgba(53 168 225 / 90%), /* blue light */
+		rgba(52 216 179 / 90%), /* aqua */
+		rgb(129 213 60 / 90%), /* green */
+		rgb(222 201 33 / 90%), /* yellow */
+		rgb(250 146 54 / 90%), /* orange */
+		rgb(233 92 78 / 90%), /* red */
+		rgb(205 55 139 / 90%), /* pink */
+		rgb(57 59 65 / 75%), /* dark gray */
+		rgb(57 59 65 / 75%), /* dark gray */
+		rgb(57 59 65 / 75%), /* dark gray */
+		rgb(110 72 245 / 90%), /* purple */
+		rgb(69 118 210 / 90%), /* blue dark */
+		rgba(53 168 225 / 90%), /* blue light */
+		rgba(52 216 179 / 90%), /* aqua */
+		rgb(129 213 60 / 90%), /* green */
+		rgb(222 201 33 / 90%), /* yellow */
+		rgb(250 146 54 / 90%), /* orange */
+		rgb(233 92 78 / 90%), /* red */
+		rgb(205 55 139 / 90%), /* pink */
+		rgb(121 122 125 / 100%) /* mid gray */
+	),
+	radial-gradient(
+		circle at var(--xMove) var(--yMove),
+		rgb(255 255 255 / 60%) 40%,
+		transparent
+	),
+	linear-gradient(
+		180deg,
+		rgb(216 216 216 / 100%),
+		rgb(128 128 128 / 100%)
+	);
+	
+	background-blend-mode:  color-burn, hard-light, hard-light, screen, normal;
+	background-size: 150% 150%, 100% 100%, 120% 120%, 100% 100%;
+	background-position: -95% -18%;
+	background-repeat: no-repeat;
+	/* horizonal */  /* vertical */
+	
+	-webkit-filter: blur(35px) saturate(130%) brightness(.95) contrast(160%);
+	filter: blur(35px) saturate(130%) brightness(.95) contrast(160%);
+	
+	opacity: .52;
+	
+	-webkit-clip-path: url(#dottedRoundLogo);
+	clip-path: url(#dottedRoundLogo);
+}
+
+.chargeNameWrapper {
+	position: absolute;
+	top: 8%;
+	left: 0;
+	width: 95%;
+}
+
+.chargeName {
+	font-family: var(--raleway);
+	font-size: 1.15em;
+	color: rgb(255 255 255 / 95%);
+	font-weight: 900;
+	text-align: right;
+	-webkit-text-stroke: 1px rgb(61 60 91 / 100%);
+	position: absolute;
+	top: 9%;
+	left: 0;
+	right: 0;
+	font-variant: small-caps;
+	font-style: italic;
+	text-shadow: 0 0 2px rgb(0 0 0 / 45%);
+}
+
+.cardChipWrapper {
+}
+
+.cardChip {
+	position: absolute;
+	width: 40px;
+	height: 30px;
+	overflow: hidden;
+	border-radius: .54em;
+	top: 25%;
+	left: 6%;
+	background:
+	url("emv-chip-3.png"),
+	conic-gradient( 
+		from 132deg at 50% 50%,
+		#e9cf73,
+		#d79023,
+		#e9c669,
+		#fffab2,
+		#e6b765,
+		#d4842b,
+		#e6b765,
+		#e6b765,
+		#fefab2,
+		#e9cf73
+	);
+		
+	background:
+	url("https://damienmillard.net/images/noun-chip-credit-card-1701753.png"), 
+	conic-gradient( 
+		from -30deg at 50% 50%,
+		#fbc682,
+		#e2ba72,
+		#c29039,
+		#c29039,
+		#dbab5f,
+		#edbd75,
+		#daa758,
+		#daa758,
+		#cc994b,
+		#f2bc74,
+		#f2bc74,
+		#fbc682
+	);
+	background-size: 126.67% 128%, 100% 100%;
+	background-size: 101% 101%, 100% 100%;
+	background-repeat: no-repeat;
+	background-position: -5px -5px, center center;
+	background-position: center center, center center;
+	margin: 0;
+	padding: 0;
+	background-blend-mode: darken, normal;
+	mix-blend-mode: normal;
+	box-shadow: 0 0 2px rgb(0 0 0 / 35%);
+}
+
+.cardChipFoil {
+	position: absolute;
+	width: 40px;
+	height: 30px;
+	overflow: hidden;
+	border-radius: .54em;
+	top: 25%;
+	left: 6%;
+	background: 
+	conic-gradient( 
+		from 132deg at 50% 50%,
+		#e9cf73,
+		#d79023,
+		#e9c669,
+		#fffab2,
+		#e6b765,
+		#d4842b,
+		#e6b765,
+		#e6b765,
+		#fefab2,
+		#e9cf73
+	);
+		
+	background:
+	conic-gradient( 
+		from 0deg at 50% 50%,
+		#fbc682,
+		#e2ba72,
+		#c29039,
+		#c29039,
+		#dbab5f,
+		#edbd75,
+		#daa758,
+		#daa758,
+		#cc994b,
+		#f2bc74,
+		#f2bc74,
+		#fbc682
+	);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	margin: 0;
+	padding: 0;
+	background-blend-mode: normal;
+	mix-blend-mode: difference;
+}
+
+.tapToPayIcon {
+	position: absolute;
+	width: 100%;
+	max-width: 25px;
+	height: 100%;
+	max-height: 25px;
+	top: 27.5%;
+	left: 25%;
+}
+
+.tapIcon {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-size: 100% 100%;
+}
+
+.tapIcon i {
+	color: rgba(255, 255, 255, 0.8);
+	transform: rotate(90deg) translate(-50%, -0%);
+	vertical-align: middle;
+	position: absolute;
+	top: 58%;
+	left: 0;
+	filter: 
+        drop-shadow( .6px 0px 0px rgb(61 60 91 / 100%)) 
+        drop-shadow(-.6px 0px 0px rgb(61 60 91 / 100%))
+        drop-shadow( 0px .6px 0px rgb(61 60 91 / 100%)) 
+        drop-shadow( 0px -1px 0px rgb(61 60 91 / 100%));
+}
+
+.cardNumberWrapper {
+	width: 95%;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 53%;
+}
+
+.cardNumber {
+	position: absolute;
+	left: 0;
+	right: 0;
+	display: block;
+	font-weight: 300;
+	font-family: var(--overpassMono);
+	font-size: 1.15em;
+	text-align: center;
+	text-shadow: 0 0 3px rgba(0, 0, 0, .7), -.5px -1px 1px rgba(255, 255, 255, .3), .5px 1px 1px rgba(0, 0, 0, .9);
+	color: rgb(111 121 128 / 100%);
+	color: rgb(198 160 47 / 100%);
+	transition: all 300ms ease;
+	padding-left: 5px;
+	
+	text-shadow: 
+	/* create highlights on the right */
+	.3px 0px 0px rgb(220 220 220 / 50%),
+	/* create highlights on the right bottom of text */
+	-.1px .68px .2px rgb(220 220 220 / 100%),
+	/* create shadows on both left and right for pop up effect */
+	-1px -.3px .5px rgb(0 0 0 / 70%), 
+	1px 1px .5px rgb(0 0 0 / 70%);
+
+	filter: drop-shadow(0 0 2px rgb(0 0 0 / 55%));
+}
+
+.cardNumberFoil {
+	font-weight: 300;
+	font-family: var(--overpassMono);
+	font-size: 1.15em;
+	text-align: center;
+	transition: all 300ms ease;
+	padding-left: 5px;
+	
+	-webkit-text-fill-color: transparent;
+	color: transparent;
+	
+	background: linear-gradient(to top, 
+		rgb(133 105 20 / 100%) 0%, 
+		rgb(198 160 47 / 100%) 100%
+	);
+	
+	-webkit-background-clip: text;
+	background-clip: text;
+	mix-blend-mode: color-burn;
+	opacity: .57;
+}
+
+.cardValidDateWrapper {
+	position: absolute;
+	top: 69%;
+	width: 95%;
+}
+
+.cardValidDate {
+	font-weight: 400;
+	font-family: var(--poppins);
+	font-size: 0.7em;
+	text-align: left;
+	line-height: 1em;
+	color: rgb(255 255 255 / 85%);
+	display: inline-block;
+	position: absolute;
+	left: 69%;
+	filter: 
+        drop-shadow( .6px 0px 0px rgb(61 60 91 / 100%)) 
+        drop-shadow(-.6px 0px 0px rgb(61 60 91 / 100%))
+        drop-shadow( 0px .6px 0px rgb(61 60 91 / 100%)) 
+        drop-shadow( 0px -1px 0px rgb(61 60 91 / 100%));
+	text-shadow: 0 0 2px rgb(0 0 0 / 55%);
+}
+
+.validText {
+	font-size: 0.5em;
+	vertical-align: top;
+	display: inline-block;
+}
+
+.validTextTwo {
+	padding-left: 51%;
+	width: 100%;
+	padding-top: 5%;
+	display: block;
+	font-size: 0.5em;
+}
+
+.cardUserNameWrapper {
+	width: 95%;
+	position: absolute;
+	top: 83%;
+	left: 6%;
+}
+
+.cardUserName {
+	position: absolute;
+	font-weight: 400;
+	font-family: var(--poppins);
+	font-size: 1em;
+	text-align: left;
+	display: block;
+	color: rgb(129 138 145 / 100%);
+	color: rgb(147 164 177 / 100%);
+	letter-spacing: 1px;
+	
+	text-shadow: 
+	/* create highlights on the right */
+	.3px 0px 0px rgb(220 220 220 / 50%),
+	/* create highlights on the right bottom of text */
+	-.1px .68px .2px rgb(220 220 220 / 100%),
+	/* create shadows on both left and right for pop up effect */
+	-1px -.3px .5px rgb(0 0 0 / 70%), 
+	1px 1px .5px rgb(0 0 0 / 70%);
+
+	filter: drop-shadow(0 0 2px rgb(0 0 0 / 55%));
+}
+
+.cardUserNameFoil {
+	position: absolute;
+	font-weight: 400;
+	font-family: var(--poppins);
+	font-size: 1em;
+	text-align: left;
+	display: block;
+	letter-spacing: 1px;
+	
+	-webkit-text-fill-color: transparent;
+	color: transparent;
+	
+	background: linear-gradient(to top, 
+		rgba(139 139 139 / 100%) 0%, 
+		rgba(229 229 229 / 100%) 100%
+	);
+	
+	-webkit-background-clip: text;
+	background-clip: text;
+	mix-blend-mode: multiply;
+	opacity: .75;
+}
+
+.no-more-slidey {
+	transition: none;
+}

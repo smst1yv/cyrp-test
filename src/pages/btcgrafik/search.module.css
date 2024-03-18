@@ -1,0 +1,103 @@
+ .section {
+    margin: 0 auto;
+    padding: 5rem 0 2rem;
+ }
+.container{
+    max-width: 40rem;
+    height: auto;
+    margin: 0 auto;
+    padding: 5rem 3rem;
+    border-radius: 0.25rem;
+    box-shadow: 0px 0px 7px 2px rgba(170,163,163,0.75);
+    -webkit-box-shadow: 0px 0px 7px 2px rgba(170,163,163,0.75);
+    -moz-box-shadow: 0px 0px 7px 2px rgba(170,163,163,0.75);
+}
+.fg {
+    position: relative;
+}
+
+.fa {
+    position: absolute;
+    top: 0.65rem;
+    right: 0.5rem;
+    z-index: 10;
+    font-size: 1.35rem;
+    line-height: inherit;
+    color: var(--color-darks);
+}
+
+.form .dropdown {
+    position: relative;
+}
+
+.drsl{
+    position: relative;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    cursor: pointer;
+    user-select: none;
+    width: 100%;
+    height: auto;
+    padding: 0.75rem 1.25rem;
+    border: none;
+    outline: none;
+    border-radius: 0.25rem;
+    color: var(--color-black);
+    background-clip: padding-box;
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-medium);
+    transition: all 0.3s ease-in-out;
+}
+
+.drmen{
+    position: absolute;
+    display: none;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    border-radius: 0.25rem;
+    background-color: var(--color-white);
+    transition: all 0.3s ease-in-out;
+}
+ 
+.drsar{
+    display: block;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    width: 100%;
+    height: auto;
+    padding: 0.65rem 1.25rem;
+    border: none;
+    outline: none;
+    color: var(--color-black);
+    background-clip: padding-box;
+    background-color: var(--color-light);
+}
+
+.dmi{
+    max-height: 16rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+
+.dropdown{
+    box-shadow: 0px 0px 7px 2px rgba(170,163,163,0.75);
+    -webkit-box-shadow: 0px 0px 7px 2px rgba(170,163,163,0.75);
+    -moz-box-shadow: 0px 0px 7px 2px rgba(170,163,163,0.75);
+}
+
+.prce{
+    padding: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    border: none;
+    box-shadow: 0px 0px 7px 2px rgba(170,163,163,0.75);
+    -webkit-box-shadow: 0px 0px 7px 2px rgba(170,163,163,0.75);
+    -moz-box-shadow: 0px 0px 7px 2px rgba(170,163,163,0.75);
+}
